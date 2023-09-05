@@ -1,9 +1,11 @@
 body {
-    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Roboto' , sans-serif;
 }
 
 .yellotail {
-    font-family: 'Yellowtail', cursive;
+    /* font-family: 'Yellowtail', cursive; */
+    font-family: 'Yellowtail' , cursive;
 }
 
 nav {

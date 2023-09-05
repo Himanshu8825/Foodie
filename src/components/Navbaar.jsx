@@ -10,7 +10,7 @@ const NavbarComponent =() => {
     <>
       <Navbar classnameName="yellotail">
 				<LinkContainer to={'/'}>
-					<Navbar.Brand classnameName='fs-1'>Foodie</Navbar.Brand>
+					<Navbar.Brand className='fs-1 yellotail'>Foodie</Navbar.Brand>
 				</LinkContainer>
 			</Navbar>
 			<Nav classnameName="mb-4 ">
