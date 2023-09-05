@@ -1,13 +1,17 @@
 import React from 'react'
 import Navbaar from './../components/Navbaar';
 import Footer from '../components/Footer';
+import Card from '../components/Card';
+
+
+
 
 const Home = () => {
   return (
     <>
-    <Navbaar/>
-    <h2>Home-Page</h2>
-    <Footer/>
+    <div><Navbaar/></div>
+    <div> <Card/></div>
+    <div><Footer/></div>
     </>
   )
 }

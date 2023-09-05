@@ -1,6 +1,6 @@
 import React from 'react'
-import Home from './screens/Home';
-import LogIn from './screens/LogIn';
+import Home from '../screens/Home';
+import LogIn from '../screens/LogIn';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 const App = () => {
