@@ -25,8 +25,8 @@ const NavbarComponent = () => {
           </LinkContainer>
         </Nav.Item>
         <Nav.Item>
-          <LinkContainer to={"/contact"}>
-            <Nav.Link>Contact</Nav.Link>
+          <LinkContainer to={"/signup"}>
+            <Nav.Link>Sign-Up</Nav.Link>
           </LinkContainer>
         </Nav.Item>
       </Nav>

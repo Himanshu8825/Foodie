@@ -9,27 +9,22 @@ import {
   MDBCardBody,
   MDBCardImage,
 } from "mdb-react-ui-kit";
-import Form from "react-bootstrap/Form";
-import { Link, useNavigate } from "react-router-dom";
+import Form from 'react-bootstrap/Form';
+import { Link } from "react-router-dom";
+
 
 function App() {
-  const [credentials, setcredentials] = useState({
-    email: "",
-    pass: "",
-  });
 
-  let navigate = useNavigate();
+  const [credentials, setcredentials] = useState({ name: "", email: "", pass: "", Geolocation: "" })
+
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const response = await fetch("http://localhost:5001/api/loginuser", {
+    e.preventDefault()
+    const response = await fetch("http://localhost:5001/api/creatuser", {
       method: "POSt",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
       },
-      body: JSON.stringify({
-        email: credentials.email,
-        pass: credentials.pass,
-      }),
+      body: JSON.stringify({ name: credentials.name, email: credentials.email, pass: credentials.pass, location: credentials.Geolocation })
     });
 
     const json = await response.json();
@@ -37,20 +32,16 @@ function App() {
     if (!json.success) {
       alert("Enter Valid Credentials");
     }
-
-    if (json.success) {
-      navigate("/");
-    }
-  };
+  }
 
   const onChange = (e) => {
-    setcredentials({ ...credentials, [e.target.name]: e.target.value });
-  };
+    setcredentials({ ...credentials, [e.target.name]: e.target.value })
+  }
   return (
     <form onSubmit={handleSubmit}>
       <MDBContainer fluid>
         <MDBCard className="text-black m-5" style={{ borderRadius: "25px" }}>
-          <MDBCardBody>
+          <MDBCardBody >
             <MDBRow>
               <MDBCol
                 md="10"
@@ -58,40 +49,31 @@ function App() {
                 className="order-2 order-lg-1 d-flex flex-column align-items-center"
               >
                 <p className="yellotail fs-1 text-center fs-1 mb-5 mx-1 mx-md-4 mt-4">
-                  Log In
+                  Sign up
                 </p>
+
+                <div className="d-flex flex-row align-items-center mb-4">
+                  <Form.Label>Full Name</Form.Label>
+                  <Form.Control type="text" placeholder="Enter Name" name="name" value={credentials.name} onChange={onChange} />
+                </div>
 
                 <div className="d-flex flex-row align-items-center mb-4 ">
                   <Form.Label>Email address</Form.Label>
-                  <Form.Control
-                    type="email"
-                    placeholder="Enter email"
-                    name="email"
-                    value={credentials.email}
-                    onChange={onChange}
-                  />
+                  <Form.Control type="email" placeholder="Enter email" name="email" value={credentials.email} onChange={onChange} />
                 </div>
 
                 <div className="d-flex flex-row align-items-center mb-4">
                   <Form.Label>Password</Form.Label>
-                  <Form.Control
-                    type="password"
-                    placeholder="Password"
-                    name="pass"
-                    value={credentials.pass}
-                    onChange={onChange}
-                  />
+                  <Form.Control type="password" placeholder="Password" name="pass" value={credentials.pass} onChange={onChange} />
                 </div>
 
-                <button className="btn btn-info m-3 text-white ">
-                  Sign-In
-                </button>
-                <Link
-                  to={"/signup"}
-                  className="btn  fw-600 border btn-outline-info"
-                >
-                  Create An Account
-                </Link>
+                <div className="d-flex flex-row align-items-center mb-4">
+                  <Form.Label>Location</Form.Label>
+                  <Form.Control type="password" placeholder="Address" name="Geolocation" value={credentials.Geolocation} onChange={onChange} />
+                </div>
+
+                <button className="btn btn-info m-3 ">Register</button>
+                <Link to={'/login'} className="btn btn-primary ">Already A User</Link>
               </MDBCol>
 
               <MDBCol
