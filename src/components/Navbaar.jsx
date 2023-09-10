@@ -35,7 +35,7 @@ const NavbarComponent = (props) => {
           </LinkContainer>
 
           {localStorage.getItem("authToken") ? (
-            <LinkContainer to={"/"}>
+            <LinkContainer to={"/myOrder"}>
               <Nav.Link className="fs-5  ">My Order</Nav.Link>
             </LinkContainer>
           ) : (

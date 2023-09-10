@@ -19,26 +19,35 @@ export default function Cart() {
   // }
 
   const handleCheckOut = async () => {
-    let userEmail = localStorage.getItem("userEmail");
-    // console.log(data,localStorage.getItem("userEmail"),new Date())
-    let response = await fetch("http://localhost:5001/api/auth/orderData", {
-      // credentials: 'include',
-      // Origin:"http://localhost:3000/login",
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        order_data: data,
-        email: userEmail,
-        order_date: new Date().toDateString(),
-      }),
-    });
-    console.log("JSON RESPONSE:::::", response.status);
-    if (response.status === 200) {
-      dispatch({ type: "DROP" });
+    try {
+      let userEmail = localStorage.getItem("userEmail");
+
+      const response = await fetch("http://localhost:5001/api/orderData", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          order_data: data,
+          email: userEmail,
+          order_date: new Date().toDateString(),
+        }),
+      });
+
+      if (response.status === 200) {
+        // Request was successful, dispatch your action here
+        dispatch({ type: "DROP" });
+      } else {
+        // Handle non-successful response status codes here
+        console.error("Request failed with status:", response.status);
+        // You might want to throw an error or handle this in some way
+      }
+    } catch (error) {
+      // Handle network errors here
+      console.error("Network error:", error);
     }
   };
+
 
   let totalPrice = data.reduce((total, food) => total + food.price, 0);
   return (

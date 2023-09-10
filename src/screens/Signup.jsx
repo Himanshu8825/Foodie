@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import {
-  MDBBtn,
   MDBContainer,
   MDBRow,
   MDBCol,

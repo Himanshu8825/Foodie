@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "../../node_modules/bootstrap-dark-5/dist/css/bootstrap-dark.min.css";
 import SignUp from "./../screens/Signup";
 import { CartProvider } from "./ContextReducer";
+import MyOrder from "../screens/MyOrder";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/myOrder" element={<MyOrder />} />
         </Routes>
       </BrowserRouter>
     </CartProvider>

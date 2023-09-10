@@ -40,6 +40,10 @@ const reducer = (state, action) => {
         }
         return food;
       });
+
+    // case "DROP":
+    //   let empArr = [];
+    //   return empArr;
     default:
       console.log("Error in Reducer");
   }
