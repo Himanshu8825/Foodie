@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import {
-  MDBBtn,
   MDBContainer,
   MDBRow,
   MDBCol,
@@ -39,6 +38,7 @@ function App() {
     }
 
     if (json.success) {
+      localStorage.setItem('authToken' , json.authToken);
       navigate("/");
     }
   };

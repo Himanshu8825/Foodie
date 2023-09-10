@@ -1,6 +1,7 @@
 body {
     /* font-family: 'Roboto', sans-serif; */
     font-family: 'Roboto', sans-serif;
+    /* background-color: rgb(34, 34, 34); */
 }
 
 .yellotail {
@@ -145,3 +146,11 @@ nav {
     height: 15rem;
 }
 
+.margince {
+    margin-left: 20px !important;
+    display: flex !important;
+}
+
+.color {
+    font-weight: 600 !important;
+}
